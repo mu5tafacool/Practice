@@ -165,7 +165,7 @@ System.out.print("*");
         Thread.sleep(1000);
         System.out.println("*****");
         Thread.sleep(1000);*/
-        System.out.println("\n******* ********\t \n" + alinanUrunler +
+        System.out.println("\n******* *********\t \n" + alinanUrunler +
                 "\n\t\n***** " + urunKilosu + "Kg\t******\t" + toplamOdeme + "TL"
                 + "\n\n**********************\t");
 
