@@ -132,8 +132,29 @@ public class Mgilgi {
         Thread.sleep(1000);
         System.out.print("****");
         Thread.sleep(1000);
-        System.out.print("*****\n");
+        System.out.print("******\n");
         Thread.sleep(1000);
+ System.out.print("*****");
+        Thread.sleep(1000);
+ System.out.print(" F");
+        Thread.sleep(900);
+ System.out.print("i");
+        Thread.sleep(900);
+ System.out.print("s");
+        Thread.sleep(900);
+ System.out.print(" ");
+        Thread.sleep(900);
+ System.out.print("*");
+        Thread.sleep(900);
+ System.out.print("*");
+        Thread.sleep(900);
+ System.out.print("*");
+        Thread.sleep(900);
+ System.out.print("*");
+        Thread.sleep(900);
+System.out.print("*");
+        Thread.sleep(900);
+
        /* System.out.println("*");
         Thread.sleep(1000);
         System.out.println("**");
@@ -144,9 +165,9 @@ public class Mgilgi {
         Thread.sleep(1000);
         System.out.println("*****");
         Thread.sleep(1000);*/
-        System.out.println("\t****** fis toplam ******\t \n" + alinanUrunler +
+        System.out.println("\n******* ********\t \n" + alinanUrunler +
                 "\n\t\n***** " + urunKilosu + "Kg\t******\t" + toplamOdeme + "TL"
-                + "\n\t\n\t**********************\t");
+                + "\n\n**********************\t");
 
     }
 
