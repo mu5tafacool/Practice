@@ -1,18 +1,17 @@
 package _10_List.Manav;
 
-import java.util.InputMismatchException;
-
-public class QMANAVQ extends Mgilgi {
+public class QuestManav extends ManavInformation {
 
 
     public static void main(String[] args) throws InterruptedException {
-        //throws InterruptedException Class i bekleme methodu calismasi icin
+        //throws InterruptedException Class parent class da bekleme methodu calismasi icin
 
         System.out.println(urunler);
         System.out.print("lutfen urun secin: ");
 
         int mSecim = scan.nextInt();
         urunHesaplama(mSecim, urunler);
+
 
 //tek problem harf girildiginde
         /***** Alternatif
@@ -25,6 +24,5 @@ public class QMANAVQ extends Mgilgi {
          urunHesaplama(mSecim, urunler);
          ******/
     }
-
-
+    
 }
