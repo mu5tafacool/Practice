@@ -17,8 +17,8 @@ public class Mgilgi {
     static Scanner scan = new Scanner(System.in);
 
     static ArrayList<String> urunler = new ArrayList<>(Arrays.asList(
-            "domat - urun kodu : 1", "elma - urun kodu : 2", "muz - urun kodu : 3",
-            "biber - urun kodu : 4", "balcan - urun kodu : 5", "Cikmak icin : 0"));
+            "Domat  - urun kodu : 1", "Elma   - urun kodu : 2", "Muz    - urun kodu : 3",
+            "Biber  - urun kodu : 4", "Patlcan - urun kodu : 5", "Cikmak icin : 0"));
     static ArrayList<Double> fiyatlar = new ArrayList<>(Arrays.asList(
             5.0, 7.5, 1.3, 8.7, 9.2));
     static ArrayList<Double> miktar = new ArrayList<>(Arrays.asList(
@@ -34,9 +34,10 @@ public class Mgilgi {
         //0........................... girildiginde miktar soruyor
         if (mSecim <= 0 || mSecim > 5) {
             if (mSecim == 0) {
-                System.out.println("Aaaa bir sey almadan mi gidiyorsun bi siftagimiz olsaydi");
                 if (urunToplam > 0) { //eger urun seciminde cikmak istenirse direk kasa methodundan fis yazilir
                     kasa();
+                } else {
+                    System.out.println("Aaaa bir sey almadan mi gidiyorsun bi siftagimiz olsaydi");
                 }
             } else {
                 System.out.print("satin almak icin urun kodunu girin: ");
@@ -54,23 +55,18 @@ public class Mgilgi {
                 case 1: //miktar array inden indexi gettir yani miktar secimin bir eksigi ve
                     // urunun fiyatlarinin degerininle carp ve bunu toplama ekleme
                     urunToplam += miktar.get(miktarSecim - 1) * fiyatlar.get(mSecim - 1);
-                    // alinanUrunler += urunler.get(mSecim - 1);//urunu eklemek icin fis e ekleniyor
-                    urunKilosu += miktar.get(miktarSecim - 1);//alinan urunun kiosu icin fis e ekleniyor
 
                     alinanUrunler += urunler.get(mSecim - 1) + "\t" + miktar.get(miktarSecim - 1) + "Kg " +
-                            "\t" + fiyatlar.get(mSecim - 1) + "TL" + "\n";
+                            "\t" + miktar.get(miktarSecim - 1) * fiyatlar.get(mSecim - 1) + "TL" + "\n";
                     //alinan urune urunler den n oldugunu +
                     // miktar arrayninden miktarsecimi indexden bir eksik getiriyor ve
                     // \n ise bir sonraki urune alta atlatiyor
 
-                    //................urunkilosu1 diye konteyner objesi olustur
-                    // kiloMiktar.add(mSecim - 1, miktar.get(miktarSecim - 1));
-                    kiloMiktar.add(mSecim - 1, urunKilosu);
-                    // System.out.println("Alinan Urun " + alinanUrunler + " *** " + kiloMiktar.get(mSecim - 1) + "Kg ");
-                    System.out.println("Alinan Urun\n " + alinanUrunler + " *** " + urunKilosu + "Kg " + "Toplam = " + urunToplam + "TL" +
+
+                    System.out.println("Alinan Urun\n" + alinanUrunler + "***\n" + "\t\t\t\t\t\tToplam = " + urunToplam + "TL" +
                             "\n\t Kasa mi: [Q]\n\tDevan mi: [C]");
 
-                    secim = scan.next(); //devammi dan alinan scan secim e esign ediliyor
+                    secim = scan.next(); //devammi dan alinan scan secim e assign ediliyor secim metdouna gidiliyor
                     secim();
                     break;
 
@@ -78,13 +74,12 @@ public class Mgilgi {
                     urunToplam += miktar.get(miktarSecim - 1) * fiyatlar.get(mSecim - 1);
 
                     alinanUrunler += urunler.get(mSecim - 1) + "\t" + miktar.get(miktarSecim - 1) + "Kg " +
-                            "\t" + fiyatlar.get(mSecim - 1) + "TL" + "\n";
+                            "\t" + miktar.get(miktarSecim - 1) * fiyatlar.get(mSecim - 1) + "TL" + "\n";
                     //alinan urune urunler den n oldugunu +
                     // miktar arrayninden miktarsecimi indexden bir eksik getiriyor ve
                     // \n ise bir sonraki urune alta atlatiyor
 
-                    System.out.println("Alinan Urun " + alinanUrunler + " *** " + kiloMiktar.get(mSecim - 1) + "Kg ");
-                    System.out.println("Alinan Urun " + alinanUrunler + " *** " + urunKilosu + "Kg " + "Toplam = " + urunToplam + "TL" +
+                    System.out.println("Alinan Urun\n" + alinanUrunler + "***\n" + "\t\t\t\t\t\tToplam = " + urunToplam + "TL" +
                             "\n\t Kasa mi: [Q]\n\tDevan mi: [C]");
 
                     secim = scan.next(); //devammi dan alinan scan secim e esign ediliyor
@@ -93,39 +88,40 @@ public class Mgilgi {
 
                 case 3:
                     urunToplam += miktar.get(miktarSecim - 1) * fiyatlar.get(mSecim - 1);
-                    System.out.println("urunToplam = " + urunToplam + "TL\n\t Kasa mi: Q\n\tDevan mi: C");
-                    secim = scan.next();
-                    alinanUrunler += urunler.get(mSecim - 1); //urunu fis ekleme
-                    urunKilosu += miktar.get(miktarSecim - 1);
-                    System.out.println("alinan urun" + alinanUrunler + "kilo " + urunKilosu);
+
+                    alinanUrunler += urunler.get(mSecim - 1) + "\t" + miktar.get(miktarSecim - 1) + "Kg " +
+                            "\t" + miktar.get(miktarSecim - 1) * fiyatlar.get(mSecim - 1) + "TL" + "\n";
+
+                    System.out.println("Alinan Urun\n" + alinanUrunler + "***\n" + "\t\t\t\t\t\tToplam = " + urunToplam + "TL" +
+                            "\n\t Kasa mi: [Q]\n\tDevan mi: [C]");
+
+                    secim = scan.next(); //devammi dan alinan scan secim e esign ediliyor
                     secim();
                     break;
 
                 case 4:
                     urunToplam += miktar.get(miktarSecim - 1) * fiyatlar.get(mSecim - 1);
-                    System.out.println("urunToplam = " + urunToplam + "TL\n\t Kasa mi: Q\n\tDevan mi: C");
-                    secim = scan.next();
-                    alinanUrunler += urunler.get(mSecim - 1); //urunu fis ekleme
-                    urunKilosu += miktar.get(miktarSecim - 1);
-                    System.out.println("alinan urun" + alinanUrunler + "kilo " + urunKilosu);
+                    alinanUrunler += urunler.get(mSecim - 1) + "\t" + miktar.get(miktarSecim - 1) + "Kg " +
+                            "\t" + miktar.get(miktarSecim - 1) * fiyatlar.get(mSecim - 1) + "TL" + "\n";
+                    System.out.println("Alinan Urun\n" + alinanUrunler + "***\n" + "\t\t\t\t\t\tToplam = " + urunToplam + "TL" +
+                            "\n\t Kasa mi: [Q]\n\tDevan mi: [C]");
+                    secim = scan.next(); //devammi dan alinan scan secim e esign ediliyor
                     secim();
                     break;
 
                 case 5:
                     urunToplam += miktar.get(miktarSecim - 1) * fiyatlar.get(mSecim - 1);
-                    System.out.println("urunToplam = " + urunToplam + "TL\n\t Kasa mi: Q\n\tDevan mi: C");
-                    secim = scan.next();
-                    alinanUrunler += urunler.get(mSecim - 1); //urunu fis ekleme
-                    urunKilosu += miktar.get(miktarSecim - 1);
-                    System.out.println("alinan urun" + alinanUrunler + "kilo " + urunKilosu);
+                    alinanUrunler += urunler.get(mSecim - 1) + "\t" + miktar.get(miktarSecim - 1) + "Kg " +
+                            "\t" + miktar.get(miktarSecim - 1) * fiyatlar.get(mSecim - 1) + "TL" + "\n";
+                    System.out.println("Alinan Urun\n" + alinanUrunler + "***\n" + "\t\t\t\t\t\tToplam = " + urunToplam + "TL" +
+                            "\n\t Kasa mi: [Q]\n\tDevan mi: [C]");
+                    secim = scan.next(); //devammi dan alinan scan secim e esign ediliyor
                     secim();
                     break;
 
                 case 0:
                     kasa();
                     break;
-
-
             }
 
         }
@@ -134,7 +130,8 @@ public class Mgilgi {
     }
 
     protected static void kasa() throws InterruptedException {
-        toplamOdeme += urunToplam;
+        System.out.println("Fisiniz yaziliyor...");
+        toplamOdeme += urunToplam; //urunlerin hepsinden alinan konteyner urunToplam toplam odemeye esitleniyor
         System.out.print("*");
         Thread.sleep(600);
         System.out.print(" * * * *");
@@ -145,7 +142,7 @@ public class Mgilgi {
         Thread.sleep(600);
         System.out.print(" * * * *\n");
         Thread.sleep(600);
-        System.out.print("************");
+        System.out.print("****************");
         Thread.sleep(600);
         System.out.print(" F");
         Thread.sleep(600);
@@ -159,30 +156,20 @@ public class Mgilgi {
         Thread.sleep(600);
         System.out.print("**");
         Thread.sleep(600);
-        System.out.print("**");
-        Thread.sleep(600);
-        System.out.print("***");
-        Thread.sleep(600);
         System.out.print("***");
         Thread.sleep(600);
         System.out.print("****");
         Thread.sleep(600);
+        System.out.print("****");
+        Thread.sleep(600);
+        System.out.print("*****");
+        Thread.sleep(600);
 
 
-       /* System.out.println("*");
-        Thread.sleep(1000);
-        System.out.println("**");
-        Thread.sleep(1000);
-        System.out.println("***");
-        Thread.sleep(1000);
-        System.out.println("****");
-        Thread.sleep(1000);
-        System.out.println("*****");
-        Thread.sleep(1000);*/
-        System.out.println("\n-------------- -----------------\t \n" + alinanUrunler
-                + "\n-------------------------------\t" +
-                "\n\nToplam" + "\t\t\t\t\t\t\t" + toplamOdeme + "TL"
-                + "\n-------------------------------\t");
+        System.out.println("\n--------------------------------------\t \n" + alinanUrunler
+                + "\n\n--------------------------------------\t" +
+                "\nToplam" + "\t\t\t\t\t\t\t" + toplamOdeme + "TL"
+                + "\n--------------------------------------\t");
 
 
     }
