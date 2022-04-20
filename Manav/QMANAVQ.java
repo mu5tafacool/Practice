@@ -1,19 +1,31 @@
 package _10_List.Manav;
 
-public class QMANAVQ extends Mgilgi{
+import java.util.InputMismatchException;
 
-
+public class QMANAVQ extends Mgilgi {
 
 
     public static void main(String[] args) throws InterruptedException {
-                    //throws InterruptedException Class i bekleme methodu calismasi icin
+        //throws InterruptedException Class i bekleme methodu calismasi icin
 
         System.out.println(urunler);
         System.out.print("lutfen urun secin: ");
-        int mSecim= scan.nextInt();
 
-        urunHesaplama(mSecim,urunler);
+      //  int mSecim = scan.nextInt();
+
+
+       int mSecim = 0;
+        try {
+            mSecim = scan.nextInt();
+        }  catch (InputMismatchException e) {
+
+        }
+        urunHesaplama(mSecim, urunler);
+
+
+
     }
 
 
 }
+
