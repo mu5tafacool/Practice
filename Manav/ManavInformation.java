@@ -1,4 +1,4 @@
-package _10_List.Manav;
+package src.Proje.Manav;
 
 import java.util.ArrayList;
 import java.util.Arrays;
